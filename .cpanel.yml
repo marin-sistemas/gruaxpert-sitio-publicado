@@ -5,4 +5,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home4/maringru/gruaxpert.com.mx/
-    - /bin/rsync -a --exclude='.git' --exclude='.cpanel.yml' --exclude='README.md' ./ $DEPLOYPATH
+    - /bin/rsync -rlt --chmod=D755,F644 --exclude='.git' --exclude='.cpanel.yml' --exclude='README.md' ./ $DEPLOYPATH
+    - /bin/chmod 755 $DEPLOYPATH

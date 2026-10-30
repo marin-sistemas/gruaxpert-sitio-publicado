@@ -1,0 +1,8 @@
+---
+# GrúaXpert · publicación de gruaxpert.com.mx desde GitHub (cPanel → Git Version Control).
+# Copia el sitio a su carpeta sin borrar lo que ya existe ahí
+# (diagnostico/, preselector/, .well-known/, respaldos).
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home4/maringru/gruaxpert.com.mx/
+    - /bin/rsync -a --exclude='.git' --exclude='.cpanel.yml' --exclude='README.md' ./ $DEPLOYPATH

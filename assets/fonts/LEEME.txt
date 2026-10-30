@@ -1,0 +1,6 @@
+Coloca aquí:
+  PlusJakartaSans-latin.woff2
+  PlusJakartaSans-latin-ext.woff2
+
+Servidas en local a propósito: cargarlas desde Google obliga al
+navegador a esperar a un tercero antes de dibujar.

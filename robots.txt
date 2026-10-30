@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Rastreadores de IA permitidos a propósito: bloquearlos equivale a
+# pedir que la empresa desaparezca de esas respuestas.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://gruaxpert.com.mx/sitemap.xml

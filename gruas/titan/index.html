@@ -29,7 +29,7 @@ if(no)return;
 <meta property="og:image:height" content="630">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/pjs-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=cb3a3839">
+<link rel="stylesheet" href="/assets/css/site.css?v=adcd9e39">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "GrúaXpert", "legalName": "Marin Crane Xperts S.A. de C.V.", "url": "https://gruaxpert.com.mx", "logo": "https://gruaxpert.com.mx/assets/img/logo-480.png", "telephone": "+525659002924", "email": "ventas@gruaxpert.com.mx", "areaServed": {"@type": "Country", "name": "México"}, "knowsAbout": ["venta de grúas industriales", "grúas seminuevas", "revisión de grúas usadas", "renta de grúas industriales", "inspección de grúas"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://gruaxpert.com.mx/"}, {"@type": "ListItem", "position": 2, "name": "Grúas", "item": "https://gruaxpert.com.mx/gruas/"}, {"@type": "ListItem", "position": 3, "name": "Titán", "item": "https://gruaxpert.com.mx/gruas/titan/"}]}</script>
 </head>
@@ -164,18 +164,17 @@ entre una que cumpla. También podemos salir a buscarla.</p>
 avisamos en cuanto entre una que cumpla. No te escribimos por nada más.</p></div>
 <form class="blk mt-1" data-gx-form="looking_for">
 <div class="form">
-<div class="field"><label for="av-nombre">Tu nombre</label>
+<div class="field"><label for="av-nombre">Tu nombre<span class="oblig" aria-hidden="true">*</span></label>
 <input id="av-nombre" type="text" name="nombre" required autocomplete="name"
        placeholder="Nombre y apellido"></div>
-<div class="field"><label for="av-tel">WhatsApp</label>
+<div class="field"><label for="av-tel">WhatsApp<span class="oblig" aria-hidden="true">*</span></label>
 <input id="av-tel" type="tel" name="telefono" required inputmode="tel"
        autocomplete="tel" placeholder="55 1234 5678"></div>
-<div class="field"><label for="av-fam">Tipo de grúa</label>
-<select id="av-fam" name="familia"><option value="">Cualquiera</option>
-<option>Telescópicas</option><option>Todo terreno</option><option>Titán</option><option>Articuladas tipo HIAB</option><option>Carry deck</option></select></div>
+<div class="field full"><p class="lbl" id="lbl-familia">Tipo de grúa</p>
+<div class="opcs" id="familia" role="radiogroup" aria-labelledby="lbl-familia"><label class="opc" for="familia-1"><input type="radio" id="familia-1" name="familia" value="Cualquiera" checked><span>Cualquiera</span></label><label class="opc" for="familia-2"><input type="radio" id="familia-2" name="familia" value="Telescópicas"><span>Telescópicas</span></label><label class="opc" for="familia-3"><input type="radio" id="familia-3" name="familia" value="Todo terreno"><span>Todo terreno</span></label><label class="opc" for="familia-4"><input type="radio" id="familia-4" name="familia" value="Titán"><span>Titán</span></label><label class="opc" for="familia-5"><input type="radio" id="familia-5" name="familia" value="Articuladas tipo HIAB"><span>Articuladas tipo HIAB</span></label><label class="opc" for="familia-6"><input type="radio" id="familia-6" name="familia" value="Carry deck"><span>Carry deck</span></label></div></div>
 <div class="field"><label for="av-cap">Capacidad en toneladas</label>
-<input id="av-cap" type="number" name="capacidad" inputmode="numeric"
-       min="1" max="1200" placeholder="50"></div>
+<input id="av-cap" type="number" name="capacidad" inputmode="decimal"
+       min="0" step="any" placeholder="50"><em class="ayuda-campo">Opcional.</em></div>
 </div>
 <label class="hp" aria-hidden="true">No llenes esto<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
 <div class="btn-row"><button class="btn btn-yl" type="submit">
@@ -251,5 +250,5 @@ cuando quieras en Preferencias.</p>
 <a class="btn btn-sm" href="/aviso-de-privacidad/">Aviso de privacidad</a>
 </div></div>
 
-<script src="/assets/js/site.js?v=94ec63f4" defer></script>
+<script src="/assets/js/site.js?v=4ebac5d3" defer></script>
 </body></html>

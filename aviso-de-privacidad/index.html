@@ -10,10 +10,14 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 (function(){var p=null;try{p=JSON.parse(localStorage.getItem("gx_privacidad_v1")||"null")}catch(e){}
 var no=!!p&&(p.analitica===false||(p.analitica===undefined&&p.decision==="rechaza_opcionales"));
-gtag("consent","default",{analytics_storage:no?"denied":"granted",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});
-if(no)return;
+var noA=!!p&&(p.anuncios===false||(p.anuncios===undefined&&p.decision==="rechaza_opcionales"));
+gtag("consent","default",{analytics_storage:no?"denied":"granted",ad_storage:noA?"denied":"granted",ad_user_data:noA?"denied":"granted",ad_personalization:"denied"});
+if(no&&noA)return;
+if(!noA){window.GX_ADS={id:"AW-17899910707",c:{"vender":"L4pTCJrIvrIdELPsq9dC","comprador":"wR68CNfrvrIdELPsq9dC","whatsapp":"1fYUCNrrvrIdELPsq9dC","llamada":"UFp_CN3rvrIdELPsq9dC"}};gtag("js",new Date());gtag("config","AW-17899910707")}
 var ya=0,go=function(){if(ya)return;ya=1;
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M6XJGL67');};
+var f=document.getElementsByTagName('script')[0],u=function(src){var j=document.createElement('script');j.async=true;j.src=src;f.parentNode.insertBefore(j,f)};
+if(!no){dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});u('https://www.googletagmanager.com/gtm.js?id=GTM-M6XJGL67')}
+if(!noA)u('https://www.googletagmanager.com/gtag/js?id=AW-17899910707');};
 ["pointerdown","keydown","touchstart","scroll"].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});
 addEventListener("load",function(){setTimeout(go,2000)});})();</script>
 <meta property="og:type" content="website">
@@ -266,7 +270,8 @@ propios. Esa remisión no requiere tu consentimiento.</p>
 
 <h2>IX. Cookies y tecnologías de obtención automática</h2>
 <p>Usamos las tecnologías necesarias para el funcionamiento y la seguridad del sitio y
-de sus formularios, y una herramienta de analítica.</p>
+de sus formularios, una herramienta de analítica y la medición de nuestros anuncios en
+Google.</p>
 
 <h3>Analítica: Google Analytics</h3>
 <p>Para saber cómo se usa el sitio y mejorarlo usamos <b>Google Analytics 4</b>, de
@@ -289,9 +294,29 @@ privacidad</a>, o con el complemento de inhabilitación de Google Analytics para
 navegador. Apagarla no cambia nada más del sitio.</li>
 </ul>
 
-<h3>Publicidad</h3>
-<p><b>No usamos tecnologías de publicidad ni de remarketing.</b> Si en el futuro se
-implementan, se informará en este aviso y estarán sujetas a las opciones de
+<h3>Medición de anuncios: Google Ads</h3>
+<p>Cuando llegas al sitio desde un anuncio de GrúaXpert en Google usamos la etiqueta
+de <b>Google Ads</b>, de Google LLC, para saber si esa visita terminó en un contacto.
+Así sabemos qué anuncios sirven y cuáles no.</p>
+<ul>
+<li><b>Qué mide:</b> que llegaste por un anuncio (un identificador del clic) y si
+después tocaste WhatsApp o «Llamar» o enviaste un formulario.</li>
+<li><b>Qué no envía:</b> tu nombre, tu teléfono, tu correo ni el contenido de los
+formularios.</li>
+<li><b>Cómo lo hace:</b> con cookies del sitio (<code>_gcl_*</code>) y cookies de
+Google.</li>
+<li><b>Duración:</b> las cookies del sitio duran 90 días.</li>
+<li><b>Quién la trata:</b> Google, como encargado de GrúaXpert, en servidores que
+pueden estar fuera de México.</li>
+<li><b>Cómo apagarla:</b> con el interruptor «Medición de anuncios» en
+<a href="/preferencias-de-privacidad/">Preferencias de privacidad</a>. Apagarla no
+cambia nada más del sitio.</li>
+</ul>
+
+<h3>Publicidad personalizada</h3>
+<p><b>No usamos remarketing ni anuncios personalizados.</b> No armamos listas con tus
+visitas para mostrarte anuncios después. Si en el futuro se implementan, se informará
+en este aviso y estarán sujetos a las opciones de
 <a href="/preferencias-de-privacidad/">Preferencias de privacidad</a>.</p>
 
 <h2>X. Derechos ARCO</h2>
@@ -318,7 +343,7 @@ documentos entregados llevan marca de agua individual que permite rastrear su or
 <p>Cualquier modificación se publicará en esta misma dirección, indicando la fecha de
 la última actualización. Te recomendamos consultarla periódicamente.</p>
 
-<div class="note"><b>Última actualización:</b> 30 de octubre de 2026.</div>
+<div class="note"><b>Última actualización:</b> 5 de noviembre de 2026.</div>
 </div>
 </div></section><section class="sec"><div class="wrap"><div class="blk cierre">
 <h2>Ejerce tus derechos</h2>
@@ -387,14 +412,14 @@ Precio a la vista · La revisas antes de pagar · Garantía de 30 días.</p>
 <nav class="tabbar" aria-label="Accesos rápidos"><a href="/"><svg class="ic-t" aria-hidden="true"><use href="#t-inicio"/></svg>Inicio</a><a href="/gruas/"><svg class="ic-t" aria-hidden="true"><use href="#t-gruas"/></svg>Grúas</a><a class="tb-fab" href="https://wa.me/525659002924" aria-label="Escribir por WhatsApp"><svg class="ic-t" aria-hidden="true"><use href="#t-wa"/></svg></a><a href="/vender-mi-grua/"><svg class="ic-t" aria-hidden="true"><use href="#t-vender"/></svg>Vender</a><a href="/guardadas/"><svg class="ic-t" aria-hidden="true"><use href="#t-guardadas"/></svg>Guardadas</a></nav>
 
 <div class="pbanner" id="pbanner" role="region" aria-label="Aviso de privacidad">
-<p>Usamos tecnologías necesarias para que el sitio funcione y Google Analytics para
-saber cómo se usa y mejorarlo. No usamos publicidad. Puedes apagar la analítica
-cuando quieras en Preferencias.</p>
+<p>Usamos tecnologías necesarias para que el sitio funcione, Google Analytics para
+saber cómo se usa y, si llegaste por un anuncio de Google, la medición de ese anuncio.
+No hacemos remarketing. Puedes apagar ambas cuando quieras en Preferencias.</p>
 <div class="btn-row">
 <button class="btn btn-sm pb-ok" id="pb-ok">Entendido</button>
 <a class="btn btn-sm" href="/preferencias-de-privacidad/">Configurar privacidad</a>
 <a class="btn btn-sm" href="/aviso-de-privacidad/">Aviso de privacidad</a>
 </div></div>
 
-<script src="/assets/js/site.js?v=81dc8800" defer></script>
+<script src="/assets/js/site.js?v=5c1dced5" defer></script>
 </body></html>

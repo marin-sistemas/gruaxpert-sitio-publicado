@@ -10,10 +10,14 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 (function(){var p=null;try{p=JSON.parse(localStorage.getItem("gx_privacidad_v1")||"null")}catch(e){}
 var no=!!p&&(p.analitica===false||(p.analitica===undefined&&p.decision==="rechaza_opcionales"));
-gtag("consent","default",{analytics_storage:no?"denied":"granted",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});
-if(no)return;
+var noA=!!p&&(p.anuncios===false||(p.anuncios===undefined&&p.decision==="rechaza_opcionales"));
+gtag("consent","default",{analytics_storage:no?"denied":"granted",ad_storage:noA?"denied":"granted",ad_user_data:noA?"denied":"granted",ad_personalization:"denied"});
+if(no&&noA)return;
+if(!noA){window.GX_ADS={id:"AW-17899910707",c:{"vender":"L4pTCJrIvrIdELPsq9dC","comprador":"wR68CNfrvrIdELPsq9dC","whatsapp":"1fYUCNrrvrIdELPsq9dC","llamada":"UFp_CN3rvrIdELPsq9dC"}};gtag("js",new Date());gtag("config","AW-17899910707")}
 var ya=0,go=function(){if(ya)return;ya=1;
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M6XJGL67');};
+var f=document.getElementsByTagName('script')[0],u=function(src){var j=document.createElement('script');j.async=true;j.src=src;f.parentNode.insertBefore(j,f)};
+if(!no){dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});u('https://www.googletagmanager.com/gtm.js?id=GTM-M6XJGL67')}
+if(!noA)u('https://www.googletagmanager.com/gtag/js?id=AW-17899910707');};
 ["pointerdown","keydown","touchstart","scroll"].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});
 addEventListener("load",function(){setTimeout(go,2000)});})();</script>
 <meta property="og:type" content="website">
@@ -222,14 +226,14 @@ Precio a la vista · La revisas antes de pagar · Garantía de 30 días.</p>
 <nav class="tabbar" aria-label="Accesos rápidos"><a href="/"><svg class="ic-t" aria-hidden="true"><use href="#t-inicio"/></svg>Inicio</a><a href="/gruas/"><svg class="ic-t" aria-hidden="true"><use href="#t-gruas"/></svg>Grúas</a><a class="tb-fab" href="https://wa.me/525659002924" aria-label="Escribir por WhatsApp"><svg class="ic-t" aria-hidden="true"><use href="#t-wa"/></svg></a><a href="/vender-mi-grua/"><svg class="ic-t" aria-hidden="true"><use href="#t-vender"/></svg>Vender</a><a href="/guardadas/" class="on" aria-current="page"><svg class="ic-t" aria-hidden="true"><use href="#t-guardadas"/></svg>Guardadas</a></nav>
 
 <div class="pbanner" id="pbanner" role="region" aria-label="Aviso de privacidad">
-<p>Usamos tecnologías necesarias para que el sitio funcione y Google Analytics para
-saber cómo se usa y mejorarlo. No usamos publicidad. Puedes apagar la analítica
-cuando quieras en Preferencias.</p>
+<p>Usamos tecnologías necesarias para que el sitio funcione, Google Analytics para
+saber cómo se usa y, si llegaste por un anuncio de Google, la medición de ese anuncio.
+No hacemos remarketing. Puedes apagar ambas cuando quieras en Preferencias.</p>
 <div class="btn-row">
 <button class="btn btn-sm pb-ok" id="pb-ok">Entendido</button>
 <a class="btn btn-sm" href="/preferencias-de-privacidad/">Configurar privacidad</a>
 <a class="btn btn-sm" href="/aviso-de-privacidad/">Aviso de privacidad</a>
 </div></div>
 
-<script src="/assets/js/site.js?v=81dc8800" defer></script>
+<script src="/assets/js/site.js?v=5c1dced5" defer></script>
 </body></html>

@@ -13,7 +13,7 @@ var no=!!p&&(p.analitica===false||(p.analitica===undefined&&p.decision==="rechaz
 var noA=!!p&&(p.anuncios===false||(p.anuncios===undefined&&p.decision==="rechaza_opcionales"));
 gtag("consent","default",{analytics_storage:no?"denied":"granted",ad_storage:noA?"denied":"granted",ad_user_data:noA?"denied":"granted",ad_personalization:"denied"});
 if(no&&noA)return;
-if(!noA){window.GX_ADS={id:"AW-17899910707",c:{"vender":"L4pTCJrIvrIdELPsq9dC","comprador":"wR68CNfrvrIdELPsq9dC","whatsapp":"1fYUCNrrvrIdELPsq9dC","llamada":"UFp_CN3rvrIdELPsq9dC"}};gtag("js",new Date());gtag("config","AW-17899910707")}
+if(!noA){window["ga-disable-G-2B2YY0N9GM"]=true;window.GX_ADS={id:"AW-17899910707",c:{"vender":"L4pTCJrIvrIdELPsq9dC","comprador":"wR68CNfrvrIdELPsq9dC","whatsapp":"1fYUCNrrvrIdELPsq9dC","llamada":"UFp_CN3rvrIdELPsq9dC"}};gtag("js",new Date());gtag("config","AW-17899910707")}
 var ya=0,go=function(){if(ya)return;ya=1;
 var f=document.getElementsByTagName('script')[0],u=function(src){var j=document.createElement('script');j.async=true;j.src=src;f.parentNode.insertBefore(j,f)};
 if(!no){dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});u('https://www.googletagmanager.com/gtm.js?id=GTM-M6XJGL67')}

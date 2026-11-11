@@ -42,6 +42,12 @@ ErrorDocument 404 /404.html
     Header set Cache-Control "no-cache"
   </FilesMatch>
 
+  # Imágenes de los anuncios (assets/anuncios): el panel de Google Ads las
+  # baja desde ads.google.com, por eso se pueden leer desde otro origen.
+  <FilesMatch "^gx-anuncio-.*\.jpg$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
   # 6 · Cabeceras de seguridad
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"

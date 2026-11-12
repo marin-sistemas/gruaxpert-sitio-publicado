@@ -19,6 +19,9 @@ AddDefaultCharset UTF-8
   RewriteCond %{HTTP_HOST} !^gruaxpert\.com\.mx$ [NC]
   RewriteRule ^(.*)$ https://gruaxpert.com.mx/$1 [R=301,L]
 
+  # 1b · 12 nov 2026: «Cómo vendemos» se retiró; vender vive en una sola página.
+  RewriteRule ^como-vendemos/?$ /vender-mi-grua/ [R=301,L]
+
   # 2 · /ruta  →  /ruta/  (las páginas son carpetas con index.html)
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_URI} !/$

@@ -1,0 +1,130 @@
+{
+ "sitio": "https://gruaxpert.com.mx",
+ "unidades": [
+  {
+   "folio": "GX-CR-000003",
+   "titulo": "Grove RT765E-2 2014",
+   "tipo": "Todo terreno",
+   "marca": "Grove",
+   "modelo": "RT765E-2",
+   "anio": 2014,
+   "capacidad_t": 65.0,
+   "horometro_h": 10717,
+   "ubicacion": "Chihuahua",
+   "precio_mxn": 5937500,
+   "estado": "published",
+   "revision_en_sitio": false,
+   "url": "https://gruaxpert.com.mx/gruas/grove-rt765e-2-2014-000003/",
+   "fotos": [
+    "https://gruaxpert.com.mx/feeds/img/grove-rt765e-2-2014-000003-1.jpg",
+    "https://gruaxpert.com.mx/feeds/img/grove-rt765e-2-2014-000003-2.jpg",
+    "https://gruaxpert.com.mx/feeds/img/grove-rt765e-2-2014-000003-3.jpg",
+    "https://gruaxpert.com.mx/feeds/img/grove-rt765e-2-2014-000003-4.jpg"
+   ],
+   "descripcion": "Grove RT765E-2 2014, grúa todo terreno. Capacidad 65 t, horómetro 10,717 h. Está en Chihuahua. Con revisión en sitio y 30 días de garantía. Fotos, ficha técnica y precio en gruaxpert.com.mx. Te contesta una persona por WhatsApp.",
+   "ficha": [
+    {
+     "dato": "Capacidad máxima",
+     "valor": 65,
+     "unidad": "t"
+    },
+    {
+     "dato": "Horómetro",
+     "valor": 10717,
+     "unidad": "h"
+    },
+    {
+     "dato": "Año",
+     "valor": 2014,
+     "unidad": null
+    }
+   ]
+  },
+  {
+   "folio": "GX-CR-000004",
+   "titulo": "Fassi F515RA.2.26 2017",
+   "tipo": "Articuladas tipo HIAB",
+   "marca": "Fassi",
+   "modelo": "F515RA.2.26",
+   "anio": 2017,
+   "capacidad_t": 15.0,
+   "horometro_h": null,
+   "ubicacion": "Tlalnepantla, Estado de México",
+   "precio_mxn": 5250000,
+   "estado": "published",
+   "revision_en_sitio": false,
+   "url": "https://gruaxpert.com.mx/gruas/fassi-f515ra-2-26-2017-000004/",
+   "fotos": [
+    "https://gruaxpert.com.mx/feeds/img/fassi-f515ra-2-26-2017-000004-1.jpg",
+    "https://gruaxpert.com.mx/feeds/img/fassi-f515ra-2-26-2017-000004-2.jpg"
+   ],
+   "descripcion": "Fassi F515RA.2.26 2017, grúa articulada tipo HIAB. Capacidad 15 t. Está en Tlalnepantla, Estado de México. Con revisión en sitio y 30 días de garantía. Fotos, ficha técnica y precio en gruaxpert.com.mx. Te contesta una persona por WhatsApp.",
+   "ficha": [
+    {
+     "dato": "Capacidad máxima",
+     "valor": 15,
+     "unidad": "t"
+    },
+    {
+     "dato": "Año",
+     "valor": 2017,
+     "unidad": null
+    },
+    {
+     "dato": "Alcance horizontal",
+     "valor": 16.3,
+     "unidad": "m"
+    },
+    {
+     "dato": "Montaje sobre chasis",
+     "valor": "International ProStar 2009 · Cummins 450 hp",
+     "unidad": null
+    }
+   ]
+  },
+  {
+   "folio": "GX-CR-000002",
+   "titulo": "International 4900 articulada 2015",
+   "tipo": "Articuladas tipo HIAB",
+   "marca": "International",
+   "modelo": "4900 articulada",
+   "anio": 2015,
+   "capacidad_t": 6.0,
+   "horometro_h": null,
+   "ubicacion": "Querétaro",
+   "precio_mxn": 1562500,
+   "estado": "published",
+   "revision_en_sitio": false,
+   "url": "https://gruaxpert.com.mx/gruas/international-4900-articulada-2015-000002/",
+   "fotos": [
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-1.jpg",
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-2.jpg",
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-3.jpg",
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-4.jpg",
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-5.jpg",
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-6.jpg",
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-7.jpg",
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-8.jpg",
+    "https://gruaxpert.com.mx/feeds/img/international-4900-articulada-2015-000002-9.jpg"
+   ],
+   "descripcion": "International 4900 articulada 2015, grúa articulada tipo HIAB. Capacidad 6 t. Está en Querétaro. Con revisión en sitio y 30 días de garantía. Fotos, ficha técnica y precio en gruaxpert.com.mx. Te contesta una persona por WhatsApp.",
+   "ficha": [
+    {
+     "dato": "Capacidad máxima",
+     "valor": 6,
+     "unidad": "t"
+    },
+    {
+     "dato": "Año",
+     "valor": 2015,
+     "unidad": null
+    },
+    {
+     "dato": "Montaje sobre chasis",
+     "valor": "International 4900 · plataforma 7.35 m · rampa hidráulica 2.5 t",
+     "unidad": null
+    }
+   ]
+  }
+ ]
+}

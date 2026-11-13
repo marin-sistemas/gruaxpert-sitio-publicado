@@ -21,6 +21,8 @@ AddDefaultCharset UTF-8
 
   # 1b · 12 nov 2026: «Cómo vendemos» se retiró; vender vive en una sola página.
   RewriteRule ^como-vendemos/?$ /vender-mi-grua/ [R=301,L]
+  # 1c · 12 nov 2026: el acceso interno vive en /panel/ (con contraseña).
+  RewriteRule ^acceso/?$ /panel/ [R=301,L]
 
   # 2 · /ruta  →  /ruta/  (las páginas son carpetas con index.html)
   RewriteCond %{REQUEST_FILENAME} -d

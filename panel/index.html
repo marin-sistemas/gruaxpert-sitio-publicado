@@ -588,6 +588,9 @@ function pintar(p) {
   const v = { interno: vInterno, vendedor: vVendedor, comprador: vComprador, inspector: vInspector }[p.perfil];
   $("#contenido").innerHTML = v ? v(p.datos || {}, p) : `<div class="vacio">Tu cuenta no tiene panel asignado.</div>`;
   if (p.perfil === "interno") { activarPestanas(); activarListas(); }
+  // 14 nov 2026: este navegador es del equipo; el sitio deja de contar
+  // sus clics como conversión de Ads (ver conversion() en site.js).
+  if (p.perfil === "interno") { try { localStorage.setItem("gx_interno", "1"); } catch (e) {} }
   activarAcciones();
 }
 // Con volumen (decenas de interesados) cada pestaña larga lleva buscador y

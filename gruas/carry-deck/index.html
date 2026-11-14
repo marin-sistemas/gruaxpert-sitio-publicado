@@ -36,7 +36,7 @@ addEventListener("load",function(){setTimeout(go,2000)});})();</script>
 <meta property="og:image:height" content="630">
 <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/pjs-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=d241ce76">
+<link rel="stylesheet" href="/assets/css/site.css?v=63ddb027">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "GrúaXpert", "legalName": "Marin Crane Xperts S.A. de C.V.", "url": "https://gruaxpert.com.mx", "logo": "https://gruaxpert.com.mx/assets/img/logo-480.png?v=d22d1cc9", "telephone": "+525659002924", "email": "ventas@gruaxpert.com.mx", "areaServed": {"@type": "Country", "name": "México"}, "knowsAbout": ["venta de grúas industriales", "grúas seminuevas", "revisión de grúas usadas", "renta de grúas industriales", "inspección de grúas"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://gruaxpert.com.mx/"}, {"@type": "ListItem", "position": 2, "name": "Grúas", "item": "https://gruaxpert.com.mx/gruas/"}, {"@type": "ListItem", "position": 3, "name": "Carry deck", "item": "https://gruaxpert.com.mx/gruas/carry-deck/"}]}</script>
 </head>
@@ -204,6 +204,10 @@ addEventListener("load",function(){setTimeout(go,2000)});})();</script>
 <a href="https://wa.me/525659002924"><svg class="ic"><use href="#i-wa"/></svg>56 5900 2924</a>
 <a class="js-tel" href="tel:+525659002924" title="Lun–Vie 9:00 a 18:00 · Sáb 9:00 a 14:00"><svg class="ic"><use href="#i-phone"/></svg>Llamar <small>Lun–Vie 9 a 18 · Sáb 9 a 14</small></a>
 <a href="mailto:ventas@gruaxpert.com.mx"><svg class="ic"><use href="#i-doc"/></svg>ventas@gruaxpert.com.mx</a>
+<!-- Acceso interno (14 nov 2026, igual que en Marín Grúas): candado
+     discreto junto a los contactos. Abre el Centro de Operaciones; sin
+     JavaScript lleva directo a /panel/, que pide correo y contraseña. -->
+<a class="gxint-b" href="/panel/" rel="nofollow" aria-label="Acceso interno" aria-haspopup="dialog" aria-expanded="false" aria-controls="gxintM"><svg class="ic"><use href="#i-candado"/></svg></a>
 </div>
 </div>
 
@@ -243,10 +247,19 @@ Precio a la vista · Unidades revisadas · Garantía de 30 días.</p>
 <a href="/derechos-arco/">Derechos ARCO</a>
 <a href="/preferencias-de-privacidad/">Preferencias de privacidad</a>
 <a href="/legal/terminos/">Términos y condiciones</a>
-<a class="ft-acceso" href="/panel/" rel="nofollow"><svg class="ic"><use href="#i-candado"/></svg>Acceso interno</a>
 </p>
 </div>
 </div></footer>
+
+<div class="gxint-o" hidden><div class="gxint-m" id="gxintM" role="dialog" aria-modal="true" aria-labelledby="gxintT" tabindex="-1">
+<button type="button" class="gxint-x" aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button>
+<div class="gxint-h"><span class="gxint-hi"><svg class="ic"><use href="#i-candado"/></svg></span>
+<span class="gxint-hx"><span class="gxint-ht" id="gxintT">Centro de Operaciones</span><span class="gxint-hs">GrúaXpert · Uso interno</span></span></div>
+<a href="/panel/" rel="nofollow"><span class="gxint-ic"><svg class="ic"><use href="#i-grid"/></svg></span><span class="gxint-tx"><span class="gxint-t">Panel del equipo</span><span class="gxint-d">Solicitudes, unidades y avisos</span></span><span class="gxint-fl"><svg class="ic"><use href="#i-chev-r"/></svg></span></a>
+<a href="/inspect/" rel="nofollow"><span class="gxint-ic"><svg class="ic"><use href="#i-shield"/></svg></span><span class="gxint-tx"><span class="gxint-t">App del inspector</span><span class="gxint-d">Revisión en campo, sin señal</span></span><span class="gxint-fl"><svg class="ic"><use href="#i-chev-r"/></svg></span></a>
+<a href="https://metricas.maringruas.com.mx/" rel="nofollow noopener"><span class="gxint-ic"><svg class="ic"><use href="#i-graph"/></svg></span><span class="gxint-tx"><span class="gxint-t">Panel de métricas</span><span class="gxint-d">Visitas, Google y anuncios</span></span><span class="gxint-fl"><svg class="ic"><use href="#i-chev-r"/></svg></span></a>
+<p class="gxint-p"><svg class="ic"><use href="#i-candado"/></svg>Solo personal autorizado de GrúaXpert</p>
+</div></div>
 
 <nav class="tabbar" aria-label="Accesos rápidos"><a href="/"><svg class="ic-t" aria-hidden="true"><use href="#t-inicio"/></svg>Inicio</a><a href="/gruas/" class="on" aria-current="page"><svg class="ic-t" aria-hidden="true"><use href="#t-gruas"/></svg>Grúas</a><a class="tb-fab" href="https://wa.me/525659002924" aria-label="Escribir por WhatsApp"><svg class="ic-t" aria-hidden="true"><use href="#t-wa"/></svg></a><a href="/vender-mi-grua/"><svg class="ic-t" aria-hidden="true"><use href="#t-vender"/></svg>Vender</a><a href="/guardadas/"><svg class="ic-t" aria-hidden="true"><use href="#t-guardadas"/></svg>Guardadas</a></nav>
 
@@ -258,5 +271,5 @@ Puedes <a href="/preferencias-de-privacidad/">configurarlas</a> cuando quieras.<
 <a class="btn btn-sm" href="/aviso-de-privacidad/">Aviso de privacidad</a>
 </div></div>
 
-<script src="/assets/js/site.js?v=988feb95" defer></script>
+<script src="/assets/js/site.js?v=713728cf" defer></script>
 </body></html>

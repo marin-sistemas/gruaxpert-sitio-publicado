@@ -3,7 +3,7 @@
    La versión la pone build.py con la huella de index.html: cada cambio
    de la app instala una caché nueva sola. No hay número que recordar.
    ===================================================================== */
-const CACHE = "gx-inspector-e3c58aac4e";
+const CACHE = "gx-inspector-56a9d371ba";
 const BASE = [
   "./", "./manifest.webmanifest",
   "/assets/fonts/pjs-400.woff2", "/assets/fonts/pjs-600.woff2", "/assets/fonts/pjs-700.woff2", "/assets/fonts/pjs-800.woff2", "/assets/fonts/bricolage.woff2",

@@ -19,7 +19,7 @@ var f=document.getElementsByTagName('script')[0],u=function(src){var j=document.
 if(!no){dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});u('https://www.googletagmanager.com/gtm.js?id=GTM-M6XJGL67')}
 if(!noA)u('https://www.googletagmanager.com/gtag/js?id=AW-17899910707');};
 ["pointerdown","keydown","touchstart","scroll"].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});
-addEventListener("load",function(){setTimeout(go,2000)});})();</script>
+addEventListener("load",function(){setTimeout(function(){(window.requestIdleCallback||function(f){f()})(go,{timeout:2500})},5000)});})();</script>
 <meta property="og:type" content="product">
 <meta property="og:site_name" content="GrúaXpert">
 <meta property="og:locale" content="es_MX">
@@ -33,7 +33,10 @@ addEventListener("load",function(){setTimeout(go,2000)});})();</script>
 <link rel="apple-touch-icon" href="/assets/img/icono-180.png?v=3">
 <meta name="theme-color" content="#04356D">
 <script type="speculationrules">{"prerender": [{"source": "document", "eagerness": "moderate", "where": {"and": [{"href_matches": "/*"}, {"not": {"href_matches": "/panel/*"}}, {"not": {"selector_matches": "[rel~=nofollow]"}}]}}]}</script>
-<meta property="og:image" content="https://gruaxpert.com.mx/assets/fotos/u3-1-og.jpg?v=66d04127">
+<meta property="og:image" content="https://gruaxpert.com.mx/assets/fotos/u3-share.jpg?v=2c88f019">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grove RT765E-2 2014 en venta en GrúaXpert">
 
 
 <link rel="preload" as="image" href="/assets/fotos/u3-1-w800.webp?v=16746f59" imagesrcset="/assets/fotos/u3-1-w800.webp?v=16746f59 800w, /assets/fotos/u3-1-w1600.webp?v=cf739b60 1600w" imagesizes="(max-width:900px) 100vw, 640px" fetchpriority="high">
@@ -513,5 +516,5 @@ por WhatsApp</a> y agendamos la visita ahí mismo.</p>
 <a class="btn btn-sm" href="/aviso-de-privacidad/">Aviso de privacidad</a>
 </div></div>
 
-<script src="/assets/js/site.js?v=bd020e40" defer></script>
+<script src="/assets/js/site.js?v=bdb667a8" defer></script>
 </body></html>

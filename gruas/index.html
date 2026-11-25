@@ -19,7 +19,7 @@ var f=document.getElementsByTagName('script')[0],u=function(src){var j=document.
 if(!no){dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});u('https://www.googletagmanager.com/gtm.js?id=GTM-M6XJGL67')}
 if(!noA)u('https://www.googletagmanager.com/gtag/js?id=AW-17899910707');};
 ["pointerdown","keydown","touchstart","scroll"].forEach(function(e){addEventListener(e,go,{once:true,passive:true})});
-addEventListener("load",function(){setTimeout(go,2000)});})();</script>
+addEventListener("load",function(){setTimeout(function(){(window.requestIdleCallback||function(f){f()})(go,{timeout:2500})},5000)});})();</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GrúaXpert">
 <meta property="og:locale" content="es_MX">
@@ -382,5 +382,5 @@ addEventListener("load",function(){setTimeout(go,2000)});})();</script>
 <a class="btn btn-sm" href="/aviso-de-privacidad/">Aviso de privacidad</a>
 </div></div>
 
-<script src="/assets/js/site.js?v=bd020e40" defer></script>
+<script src="/assets/js/site.js?v=bdb667a8" defer></script>
 </body></html>

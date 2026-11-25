@@ -1,8 +1,8 @@
 {
-  "built_at": "2026-11-25T09:25:18+00:00",
+  "built_at": "2026-11-25T13:53:16+00:00",
   "pages": 29,
   "listings": 3,
   "css_fingerprint": "c81e239b",
-  "js_fingerprint": "bd020e40",
-  "nota": "Ronda QA: preloads de foto principal, conteos del menú/portada desde el catálogo, alt invisible en fotos rotas (25 nov 2026)"
+  "js_fingerprint": "bdb667a8",
+  "nota": "Etiqueta de Google más tarde sin perder conversiones (también en celular), imágenes para compartir por unidad (25 nov 2026)"
 }

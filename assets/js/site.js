@@ -165,3 +165,4 @@ if(e.target.closest("[data-reinicia]")){est={};paso=0;pinta();}});as.addEventLis
 (function(){function abre(id){var t=id&&document.getElementById(id);if(t&&t.tagName==="DETAILS"&&!t.open)t.open=true;}
 document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(a)abre(a.getAttribute("href").slice(1));});
 if(location.hash)abre(decodeURIComponent(location.hash.slice(1)));})();
+(function(){var rep=document.getElementById("reporte");if(!rep)return;document.addEventListener("click",function(e){if(e.detail>0&&e.target.closest&&e.target.closest("[data-reporte]"))setTimeout(function(){if(rep.open)rep.focus({preventScroll:true});},0);});})();

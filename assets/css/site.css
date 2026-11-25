@@ -30,3 +30,17 @@
 @media(min-width:760px){.fe-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.fe-guias{grid-template-columns:repeat(2,minmax(0,1fr))}.fe-tipos{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:1100px){.fe-tipos{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.fe-g,.fe-tipo{transition:none}.fe-g:hover,.fe-tipo:hover{transform:none}}
+
+/* Revisión en celular real, 24 nov 2026 */
+/* Etiquetas, chips y contadores con radio moderado, no en cápsula (regla de Marin) */
+.hd-n,.f-n,.bt-filtros-n,.mt-hay .mt-n,.hj-r em,.gf-t,.prot tbody td:nth-child(4),.tc-fam,.tc-chips li,.tc-et,.doc-e,.obs-estado{border-radius:8px}
+.tag,.badge,.g-mom,.canal em,.gal-cont,.gal-vacia .gal-nota,.recibimos li,.hs-marca,.prot-f span{border-radius:10px}
+.filters .f{border-radius:12px}
+/* Ficha: etiqueta de tipo y folio en la misma línea; acciones sin partir el texto en 360 px */
+.f6-pre{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.f6-pre .folio-gx{margin-bottom:0}
+.acc-min{white-space:nowrap;min-width:0}
+@media(max-width:380px){.acc-min{gap:5px;font-size:12.5px;padding:0 6px}.acc-min .ic{width:16px;height:16px}}
+.usos-ir{max-width:100%;height:auto;min-height:42px;padding-top:10px;padding-bottom:10px;white-space:normal;text-align:left;line-height:1.3}
+/* Menú: la pregunta inicial no deja hueco; las rutas usan la altura completa */
+.menu-int{height:auto}.menu-int:not([data-paso="inicio"]){height:min(740px,calc(100dvh - env(safe-area-inset-top,0px) - 56px))}
+.menu-int:focus{outline:none}

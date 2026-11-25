@@ -1,8 +1,8 @@
 {
-  "built_at": "2026-11-25T08:29:13+00:00",
+  "built_at": "2026-11-25T09:25:18+00:00",
   "pages": 29,
   "listings": 3,
-  "css_fingerprint": "0c50fbf1",
-  "js_fingerprint": "35889214",
-  "nota": "Menú destaca la unidad más reciente (folio mayor) y lee conteos del catálogo (25 nov 2026)"
+  "css_fingerprint": "c81e239b",
+  "js_fingerprint": "bd020e40",
+  "nota": "Ronda QA: preloads de foto principal, conteos del menú/portada desde el catálogo, alt invisible en fotos rotas (25 nov 2026)"
 }

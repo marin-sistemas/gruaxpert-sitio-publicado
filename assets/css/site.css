@@ -224,3 +224,5 @@ input.hf-rango:focus-visible{outline:2px solid var(--amarillo);outline-offset:2p
 }
 @keyframes hf-pop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.hf,.hf-int{animation:none}}
+/* una foto que no carga no deja su texto alternativo encimado en el diseño */
+img{color:transparent}

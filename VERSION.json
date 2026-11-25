@@ -1,8 +1,8 @@
 {
-  "built_at": "2026-11-25T05:18:04+00:00",
+  "built_at": "2026-11-25T08:29:13+00:00",
   "pages": 29,
   "listings": 3,
-  "css_fingerprint": "5b6c9fcf",
-  "js_fingerprint": "a7e03658",
-  "nota": "Menú premium y hoja Ordenar y filtrar (25 nov 2026)"
+  "css_fingerprint": "0c50fbf1",
+  "js_fingerprint": "35889214",
+  "nota": "Menú destaca la unidad más reciente (folio mayor) y lee conteos del catálogo (25 nov 2026)"
 }

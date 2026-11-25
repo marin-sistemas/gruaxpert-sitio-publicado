@@ -170,7 +170,7 @@ if(location.hash)abre(decodeURIComponent(location.hash.slice(1)));})();
 Array.prototype.forEach.call(gs,function(g){g.addEventListener("mouseenter",function(e){if(e.target===g)marca(g);},true);g.addEventListener("click",function(e){if(e.target.closest(".grupo-bt"))marca(g);},true);var bt=g.querySelector(".grupo-bt");if(bt)bt.addEventListener("keydown",function(e){if(e.key!=="ArrowDown")return;var a=g.querySelector(".mega-int a");if(!a)return;var n=0;(function intenta(){if(document.activeElement===a)return;if(getComputedStyle(a).visibility==="visible"){a.focus();return;}if(++n<30)requestAnimationFrame(intenta);})();});});})();
 (function(){"use strict";var hoja=document.getElementById("hf-hoja");var bt=document.querySelector('.bt-filtros[aria-controls="hf-hoja"]');var cat=document.getElementById("cat");if(!hoja||!bt||!cat)return;
 var int=hoja.querySelector(".hf-int"),cap=document.getElementById("hf-cap"),capV=document.getElementById("hf-cap-v"),q=document.getElementById("hf-q"),nTxt=document.getElementById("hf-n"),limpiar=hoja.querySelector(".hf-limpiar"),badge=bt.querySelector(".bt-filtros-n");
-var units=Array.prototype.slice.call(cat.querySelectorAll(".unit"));units.forEach(function(u,i){u.dataset.hfI=i;});
+var units=Array.prototype.slice.call(cat.querySelectorAll(".unit"));units.forEach(function(u,i){u.dataset.hfI=i;var t=u.querySelector(".cmp-tick"),m=t&&(t.dataset.folio||"").match(/(\d+)$/);u.dataset.hfN=m?+m[1]:0;});
 var tope=+cap.max;var esc=window.matchMedia("(min-width:900px)");
 try{var pq=new URLSearchParams(location.search).get("q");if(pq)q.value=pq;}catch(e){}
 function norm(s){return(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");}
@@ -180,7 +180,7 @@ function aplicar(){var lim=+cap.value,fam=familia(),pal=norm(q.value).split(/\s+
 cap.style.setProperty("--f",(lim-cap.min)/(tope-cap.min));capV.textContent=lim>=tope?"Cualquiera":"Hasta "+lim+" t";
 units.forEach(function(u){var f=u.querySelector("[data-busca]");var t=norm((f&&f.dataset.busca)||u.textContent);var ok=(!fam||u.dataset.fam===fam)&&(+u.dataset.cap||0)<=lim&&pal.every(function(w){return t.indexOf(w)>-1;});u.hidden=!ok;if(ok)vis++;});
 var k={"precio-asc":["precio",1],"precio-desc":["precio",-1],"cap-asc":["cap",1],"cap-desc":["cap",-1],"anio-desc":["anio",-1]}[o];
-var lista=units.slice().sort(function(a,b){if(!k)return a.dataset.hfI-b.dataset.hfI;var x=+a.dataset[k[0]]||0,y=+b.dataset[k[0]]||0;if(k[0]==="precio"){if(!x)return 1;if(!y)return -1;}return(x-y)*k[1]||a.dataset.hfI-b.dataset.hfI;});
+var lista=units.slice().sort(function(a,b){if(!k)return(+b.dataset.hfN||0)-(+a.dataset.hfN||0)||a.dataset.hfI-b.dataset.hfI;var x=+a.dataset[k[0]]||0,y=+b.dataset[k[0]]||0;if(k[0]==="precio"){if(!x)return 1;if(!y)return -1;}return(x-y)*k[1]||a.dataset.hfI-b.dataset.hfI;});
 lista.forEach(function(u){cat.appendChild(u);});
 var activos=(o!=="reciente"?1:0)+(lim<tope?1:0)+(pal.length?1:0);badge.textContent=activos;badge.hidden=!activos;limpiar.disabled=!activos;
 nTxt.textContent=vis+(vis===1?" unidad":" unidades");var cuenta=document.getElementById("cat-cuenta");if(cuenta)cuenta.textContent=vis===units.length?vis+(vis===1?" unidad disponible":" unidades disponibles"):vis+" de "+units.length+" unidades";
@@ -198,3 +198,22 @@ q.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();
 limpiar.addEventListener("click",function(){var r=hoja.querySelector('input[value="reciente"]');if(r)r.checked=true;cap.value=tope;q.value="";aplicar();});
 Array.prototype.forEach.call(document.querySelectorAll(".filters .f"),function(b){b.addEventListener("click",function(){aplicar();});});
 aplicar();})();
+(function(){"use strict";var MAP={"articuladas":"articulated_hiab","todo-terreno":"rough_terrain","telescopicas":"telescopic","titan":"titan","carry-deck":"carry_deck"};var cache=null,pidiendo=null,pintado=false;var enCatalogo=location.pathname.replace(/index\.html$/,"")==="/gruas/"&&!!document.querySelector("#cat .unit");
+function leer(doc){return[].map.call(doc.querySelectorAll("#cat .unit"),function(u){var t=u.querySelector(".cmp-tick"),m=t&&(t.dataset.folio||"").match(/(\d+)$/),img=u.querySelector(".tc-foto img"),a=u.querySelector(".tc-t a"),fam=u.querySelector(".tc-fam"),loc=u.querySelector(".tc-loc span"),pr=u.querySelector(".tc-precio");var chips=[].map.call(u.querySelectorAll(".tc-chips li"),function(li){return li.textContent.trim();});return{n:m?+m[1]:0,fam:u.dataset.fam||"",href:a?a.getAttribute("href"):"",nombre:img?img.getAttribute("alt"):(a?a.textContent.trim():""),famT:fam?fam.textContent.trim():"",cap:chips.filter(function(c){return/\st$/.test(c);})[0]||"",loc:loc?loc.textContent.trim():"",precio:pr?pr.textContent.trim():"",srcset:img?img.getAttribute("srcset")||"":"",src:img?img.getAttribute("src")||"":"",w:img?img.getAttribute("width")||"":"",h:img?img.getAttribute("height")||"":""};});}
+function obtener(){if(cache)return Promise.resolve(cache);if(enCatalogo){cache=leer(document);return Promise.resolve(cache);}try{var s=sessionStorage.getItem("gx-cat-v1");if(s){cache=JSON.parse(s);return Promise.resolve(cache);}}catch(e){}
+if(!pidiendo)pidiendo=fetch("/gruas/",{credentials:"same-origin"}).then(function(r){if(!r.ok)throw new Error("catalogo");return r.text();}).then(function(t){cache=leer(new DOMParser().parseFromString(t,"text/html"));try{sessionStorage.setItem("gx-cat-v1",JSON.stringify(cache));}catch(e){}return cache;});return pidiendo;}
+function pinta(us){if(pintado||!us||!us.length)return;pintado=true;var d=us.reduce(function(a,b){return b.n>a.n?b:a;});
+[].forEach.call(document.querySelectorAll(".mx-unidad"),function(c){if(c.getAttribute("href")===d.href||!d.href)return;c.setAttribute("href",d.href);var im=c.querySelector("img");var ss=d.srcset.split(",").map(function(x){return x.trim();}).filter(function(x){return/-w(480|800)\./.test(x);});if(im){im.setAttribute("src",ss.length?ss[0].split(" ")[0]:d.src);if(ss.length)im.setAttribute("srcset",ss.join(", "));else im.removeAttribute("srcset");im.setAttribute("alt",d.nombre);if(d.w)im.setAttribute("width",d.w);if(d.h)im.setAttribute("height",d.h);}
+var sm=c.querySelector(".mx-dest-t small");if(sm)sm.textContent=[d.famT,d.cap,d.loc].filter(Boolean).join(" · ");var b=c.querySelector(".mx-dest-t b");if(b)b.textContent=d.nombre;var pr=c.querySelector(".mx-precio");if(pr)pr.textContent=d.precio;});
+var cnt={};us.forEach(function(u){cnt[u.fam]=(cnt[u.fam]||0)+1;});
+[].forEach.call(document.querySelectorAll('a.mt[href^="/gruas/"]'),function(a){var m=(a.getAttribute("href")||"").match(/^\/gruas\/([a-z-]+)\/$/);if(!m||!MAP[m[1]])return;var k=cnt[MAP[m[1]]]||0,sp=a.querySelector(".mt-n");if(sp)sp.textContent=k?k+" a la venta":"Pídela";a.classList.toggle("mt-hay",!!k);});
+var tot=us.length;[].forEach.call(document.querySelectorAll(".hj-r-prim em"),function(e){if(/a la venta$/.test(e.textContent))e.textContent=tot+" a la venta";});
+[].forEach.call(document.querySelectorAll('.mx-paso[href="/gruas/"] small,.hj-paso[href="/gruas/"] small'),function(e){if(/con precio a la vista$/.test(e.textContent))e.textContent=tot+(tot===1?" grúa":" grúas")+" con precio a la vista";});}
+function ya(){obtener().then(pinta).catch(function(){});}
+if(enCatalogo){ya();return;}
+var g0=document.querySelector(".hd-nav .grupo");if(g0){g0.addEventListener("mouseenter",ya);g0.addEventListener("focusin",ya);}
+document.addEventListener("pointerdown",function(e){if(e.target.closest&&e.target.closest('.hd button[aria-label*="enú"],.tabbar'))ya();},{passive:true});
+document.addEventListener("click",function(e){if(e.target.closest&&e.target.closest('.hd button[aria-label*="enú"]'))ya();});
+var sesion=false;try{sesion=!!sessionStorage.getItem("gx-cat-v1");}catch(e){}if(sesion)ya();
+else if(window.matchMedia("(min-width:1120px)").matches){var ocioso=window.requestIdleCallback||function(f){return setTimeout(f,1800);};addEventListener("load",function(){ocioso(ya,{timeout:4000});});}})();
+

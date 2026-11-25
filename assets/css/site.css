@@ -58,3 +58,18 @@
 .mt-fila{scroll-padding-inline:14px}.filters{scroll-padding-inline:4px}
 /* «Ver todo el menú» sin hueco blanco abajo */
 .menu-int[data-paso="todo"]{height:auto}
+/* Aviso de cookies: aparece y se va con un fundido corto, sin cruzar la barra inferior */
+.pbanner{transform:translateY(10px);opacity:0;visibility:hidden;transition:transform .45s var(--suave),opacity .3s ease,visibility 0s linear .45s}
+.pbanner.on{transform:none;opacity:1;visibility:visible;transition:transform .45s var(--suave),opacity .3s ease,visibility 0s}
+/* Ficha: «Garantía y entrega» no queda bajo el encabezado */
+.f6-d{scroll-margin-top:96px}
+/* Reporte de ejemplo: en celular las cifras no se salen de su recuadro */
+@media(max-width:440px){.rep-cif{grid-template-columns:repeat(2,minmax(0,1fr))}.rep-cif li:first-child{grid-column:1/-1;grid-template-columns:auto 1fr;align-items:center;column-gap:12px}}
+/* Cómo revisamos: en pantallas angostas la cifra va arriba y el nombre cabe completo */
+@media(max-width:400px){.tomas li{flex-direction:column;align-items:flex-start;gap:8px;padding:12px 14px}}
+/* Totales del protocolo: columnas de cifras a su medida, sin salirse de la banda */
+.prot tfoot .prot-n{width:auto}
+/* Tarjetas de derechos: título a escala de tarjeta */
+.feat h2,.sec .feat h2:not([class]){font-size:var(--t-xl);line-height:1.25;letter-spacing:-.018em}
+/* Recuadros con adorno recortado: recortan sin volverse desplazables (antes, al enfocar o buscar dentro, el contenido se corría) */
+.cierre,.gal-wrap{overflow:clip}

@@ -162,3 +162,6 @@ as.addEventListener("click",function(e){var b;if((b=e.target.closest("[data-uso]
 if((b=e.target.closest("[data-peso]"))){est.peso=b.getAttribute("data-peso");paso=2;pinta();return;}
 if(e.target.closest("[data-atras]")){paso=Math.max(0,paso-1);pinta();return;}
 if(e.target.closest("[data-reinicia]")){est={};paso=0;pinta();}});as.addEventListener("submit",function(e){e.preventDefault();est.cd=(as.querySelector("#as-cd")||{}).value||"";est.cu=(as.querySelector("#as-cu")||{}).value||"";paso=3;pinta();});})();
+(function(){function abre(id){var t=id&&document.getElementById(id);if(t&&t.tagName==="DETAILS"&&!t.open)t.open=true;}
+document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(a)abre(a.getAttribute("href").slice(1));});
+if(location.hash)abre(decodeURIComponent(location.hash.slice(1)));})();

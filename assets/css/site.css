@@ -384,6 +384,7 @@ img{color:transparent}
  .hd .rd.hd-burger{width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.08);box-shadow:none}
  .menu-int{top:calc(env(safe-area-inset-top,0px) + 80px);bottom:auto;left:16px;right:16px;max-height:calc(100dvh - env(safe-area-inset-top,0px) - 96px);border-radius:28px;box-shadow:0 24px 60px rgba(4,12,26,.35)}
  .menu-int .hj-asa{display:none}
+ .menu-int .hj-x{display:none}
  .hj-dest{display:flex;align-items:center;gap:12px;margin:0 0 14px;padding:8px;border-radius:20px;background:#0B1B34;color:#fff;text-decoration:none}
  .hj-dest .mx-foto{flex:none;width:112px;border-radius:14px;overflow:hidden;background:var(--noche)}
  .hj-dest .mx-foto img{display:block;width:100%;height:auto}

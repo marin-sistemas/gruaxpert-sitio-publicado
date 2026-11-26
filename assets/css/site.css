@@ -467,3 +467,13 @@ img{color:transparent}
 .resp{display:block;text-align:center;text-wrap:balance}
 .resp .ic{display:inline-block;vertical-align:-3px;margin-right:7px}
 .cap .resp,.f6-resp{text-align:left}
+
+/* premium3: la foto de los puntos no se sale del marco */
+.an-foto{margin:4px 0 0}
+/* las 12 tomas: una sola tarjeta con renglones, no 12 tarjetas de una palabra */
+.tomas{gap:0 20px;padding:6px 20px;border-radius:24px;background:var(--papel);box-shadow:var(--s-1)}
+.tomas li{flex-direction:row!important;align-items:center!important;gap:12px!important;padding:13px 0!important;border-radius:0;background:none;box-shadow:none;border-bottom:1px solid rgba(4,53,109,.08)}
+.tomas li:hover{transform:none;box-shadow:none}
+.tomas li:nth-last-child(-n+2){border-bottom:0}
+.tomas i{width:30px;height:30px;border-radius:9px;background:var(--azul);color:#fff}
+@media(min-width:900px){.tomas li:nth-last-child(-n+4){border-bottom:0}}

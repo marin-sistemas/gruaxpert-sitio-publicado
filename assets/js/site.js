@@ -243,3 +243,48 @@ function guardadas(){var n=0;try{n=JSON.parse(localStorage.getItem("gx_guardadas
 guardadas();addEventListener("storage",guardadas);bt.addEventListener("pointerdown",guardadas,{passive:true});
 if(window.gxCat&&window.matchMedia("(max-width:899px)").matches){var ok=false;try{ok=!!sessionStorage.getItem("gx-cat-v1");}catch(e){}if(ok||location.pathname==="/gruas/")window.gxCat().then(cuenta).catch(function(){});}})();
 (function(){"use strict";function ya(){[].forEach.call(document.querySelectorAll(".hj-dest img"),function(i){i.loading="eager";});}document.addEventListener("pointerdown",function(e){if(e.target.closest&&e.target.closest(".hd-burger,.gl-bt"))ya();},{passive:true});document.addEventListener("focusin",function(e){if(e.target.closest&&e.target.closest(".hd-burger,.gl-bt"))ya();});})();
+
+/* isla4: Busca tu grúa y ¿Qué grúa necesito? */
+(function(){var ib=document.querySelector(".ib");if(!ib)return;var WA="https://wa.me/525659002924";
+function ic(id){return '<svg class="ic" aria-hidden="true"><use href="#'+id+'"/></svg>';}
+function esc(s){return String(s||"").replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function norm(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");}
+function capN(u){var m=String(u.cap||"").replace(",",".").match(/[\d.]+/);return m?parseFloat(m[0]):0;}
+var velo=document.createElement("div");velo.className="ib-velo";velo.hidden=true;
+var p=document.createElement("div");p.className="ibp";p.hidden=true;p.setAttribute("role","dialog");p.setAttribute("aria-modal","true");p.setAttribute("aria-label","Herramientas de búsqueda");
+p.innerHTML='<div class="ibp-tabs" role="tablist"><button type="button" role="tab" data-t="b">Buscar</button><button type="button" role="tab" data-t="c">¿Qué grúa necesito?</button><button type="button" class="ibp-x" aria-label="Cerrar">'+ic("i-x")+'</button></div><div class="ibp-c"></div>';
+document.body.appendChild(velo);document.body.appendChild(p);
+var cuerpo=p.querySelector(".ibp-c"),cat=null,tab="b",q="",fam="",calc={peso:2,dist:6,alt:6},abierto=false,antes=null;
+function datos(){if(cat)return Promise.resolve(cat);return(window.gxCat?window.gxCat():Promise.resolve([])).then(function(c){cat=c||[];return cat;}).catch(function(){cat=[];return cat;});}
+function fila(u,clase){return '<a class="ibp-r'+(clase||"")+'" href="'+esc(u.href)+'"><img src="'+esc(u.src)+'" alt=""><span><b>'+esc(u.nombre)+'</b><small>'+esc([u.famT,u.cap,u.loc].filter(Boolean).join(" · "))+'</small></span><em>'+esc(u.precio)+'</em></a>';}
+function filtra(){var t=norm(q).split(/\s+/).filter(Boolean);return cat.filter(function(u){if(fam&&u.famT!==fam)return false;var h=norm([u.nombre,u.famT,u.loc,u.fam].join(" "));return t.every(function(k){var m=k.match(/^(\d+(?:[.,]\d+)?)t?$/);if(m){var v=parseFloat(m[1].replace(",","."));if(v>=1900)return h.indexOf(m[1])>-1;return capN(u)>=v;}return h.indexOf(k)>-1;});});}
+function pintaB(soloLista){var r=filtra();var lista=r.length?r.map(function(u){return fila(u);}).join(""):'<p class="ibp-vacio">Ninguna coincide con «'+esc(q)+'».</p>';
+lista+='<a class="ibp-r ibp-av" href="/gruas/#avisenme"><span>'+ic("i-bell")+'</span><span><b>¿No está la que buscas?</b><small>Dinos cuál y te avisamos cuando entre</small></span></a>';
+if(soloLista){cuerpo.querySelector(".ibp-lista").innerHTML=lista;cuerpo.querySelector(".ibp-in small").textContent=r.length+(r.length===1?" grúa":" grúas");return;}
+var fams=[];cat.forEach(function(u){if(u.famT&&fams.indexOf(u.famT)<0)fams.push(u.famT);});
+cuerpo.innerHTML='<label class="ibp-in">'+ic("i-search")+'<input type="search" enterkeyhint="search" autocomplete="off" placeholder="Tipo, toneladas o ciudad" aria-label="Busca tu grúa" value="'+esc(q)+'"><small></small></label>'+
+'<div class="ibp-chips"><button type="button" data-f="" aria-pressed="'+(!fam)+'">Todas</button>'+fams.map(function(f){return '<button type="button" data-f="'+esc(f)+'" aria-pressed="'+(fam===f)+'">'+esc(f)+'</button>';}).join("")+'</div><div class="ibp-lista"></div>';
+pintaB(true);var inp=cuerpo.querySelector("input");inp.addEventListener("input",function(){q=inp.value;pintaB(true);});
+inp.addEventListener("keydown",function(e){if(e.key==="Enter"){var a=cuerpo.querySelector(".ibp-lista a.ibp-r:not(.ibp-av)");if(a)location.href=a.href;}});
+return inp;}
+function fmt(v){return(Math.round(v*10)/10).toString();}
+function pintaC(){var sirven=cat.filter(function(u){return capN(u)>=calc.peso;}).sort(function(a,b){return capN(a)-capN(b);});
+var txt="Hola, ¿qué grúa necesito? Tengo una carga de "+fmt(calc.peso)+" t a "+fmt(calc.dist)+" m de distancia y "+fmt(calc.alt)+" m de altura.";
+var campos=[["peso","Peso de la carga","t",.5],["dist","Distancia a la carga","m",1],["alt","Altura a la que sube","m",1]];
+cuerpo.innerHTML='<p class="ibp-t">¿Qué grúa necesito?</p><p class="ibp-s">La grúa se elige por la distancia, no sólo por el peso.</p><div class="ibp-num">'+campos.map(function(c){return '<div><small>'+c[1]+'</small><output>'+fmt(calc[c[0]])+'<span>'+c[2]+'</span></output><p><button type="button" data-k="'+c[0]+'" data-d="-'+c[3]+'" aria-label="Menos">−</button><button type="button" data-k="'+c[0]+'" data-d="'+c[3]+'" aria-label="Más">+</button></p></div>';}).join("")+'</div>'+
+'<div class="ibp-res"><small>Del inventario, alcanzan '+fmt(calc.peso)+' t</small><b>'+(sirven.length?(sirven.length===1?"1 grúa puede servir":sirven.length+" grúas pueden servir"):"Ninguna por ahora")+'</b><p>'+(sirven.length?"Con tu distancia y altura lo confirmamos en la tabla de carga de cada modelo.":"Te decimos qué capacidad necesitas y te avisamos cuando entre una.")+'</p>'+sirven.slice(0,3).map(function(u){return fila(u);}).join("")+'</div>'+
+'<a class="ibp-cta" href="'+WA+'?text='+encodeURIComponent(txt)+'">'+ic("i-wa")+'Que lo revise un especialista</a><a class="ibp-sec" href="/que-grua-necesito/">Prefiero llenar el formulario</a>';}
+function pinta(foco){p.querySelectorAll(".ibp-tabs [data-t]").forEach(function(b){b.setAttribute("aria-selected",b.dataset.t===tab);});
+var inp=tab==="b"?pintaB():pintaC();if(foco&&inp)setTimeout(function(){inp.focus();},60);}
+function abre(t){tab=t;antes=document.activeElement;abierto=true;velo.hidden=false;p.hidden=false;document.body.classList.add("ib-on");cuerpo.innerHTML='<p class="ibp-vacio">Cargando…</p>';
+datos().then(function(){if(abierto)pinta(t==="b");});}
+function cierra(){abierto=false;velo.hidden=true;p.hidden=true;document.body.classList.remove("ib-on");if(antes&&antes.focus)antes.focus();}
+ib.addEventListener("click",function(e){var b=e.target.closest("[data-ib]");if(b)abre(b.dataset.ib);});
+velo.addEventListener("click",cierra);
+p.addEventListener("click",function(e){var t=e.target.closest("[data-t]");if(t){tab=t.dataset.t;pinta(false);return;}
+if(e.target.closest(".ibp-x")){cierra();return;}
+var f=e.target.closest("[data-f]");if(f){fam=f.dataset.f;p.querySelectorAll("[data-f]").forEach(function(x){x.setAttribute("aria-pressed",x===f);});pintaB(true);return;}
+var k=e.target.closest("[data-k]");if(k){var c=k.dataset.k,v=calc[c]+parseFloat(k.dataset.d);calc[c]=Math.max(c==="peso"?.5:1,Math.min(c==="peso"?120:80,v));pintaC();}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&abierto)cierra();});
+window.addEventListener("pageshow",function(e){if(e.persisted&&abierto)cierra();});
+})();

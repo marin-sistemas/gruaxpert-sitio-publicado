@@ -462,3 +462,8 @@ img{color:transparent}
  .globo:not(.abierto) .gl-bt{background:var(--amarillo);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 16px 32px rgba(4,30,70,.30),0 4px 12px rgba(190,150,0,.30)}
  .gl-bt img{width:34px;height:34px}
 }
+/* premium2 */
+.mt-hay .mt-n,.badge,.tag,.tc-fam,.tc-et,.doc-e,.gf-t,.obs-estado{border-radius:8px}
+.resp{display:block;text-align:center;text-wrap:balance}
+.resp .ic{display:inline-block;vertical-align:-3px;margin-right:7px}
+.cap .resp,.f6-resp{text-align:left}

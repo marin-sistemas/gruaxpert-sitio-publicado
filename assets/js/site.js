@@ -229,4 +229,16 @@ if(mos){var top=ord.slice(0,3),act=[].map.call(mos.querySelectorAll("a.m-foto"),
 function ya(){if(window.gxCat)window.gxCat().then(pinta).catch(function(){});}
 if(tipos.length)ya();
 if(mos){if("IntersectionObserver"in window){var io=new IntersectionObserver(function(e){if(e.some(function(x){return x.isIntersecting;})){io.disconnect();ya();}},{rootMargin:"600px"});io.observe(mos);}else ya();}})();
-
+(function(){"use strict";var g=document.querySelector(".globo");if(!g)return;var bt=g.querySelector(".gl-bt"),ls=g.querySelector(".gl-lista"),velo=null;
+function abrir(){g.classList.add("abierto");bt.setAttribute("aria-expanded","true");ls.hidden=false;velo=document.createElement("div");velo.className="gl-velo";velo.addEventListener("click",cerrar);g.parentNode.insertBefore(velo,g);
+ if(window.gxCat)window.gxCat().then(cuenta).catch(function(){});}
+function cerrar(){g.classList.remove("abierto");bt.setAttribute("aria-expanded","false");ls.hidden=true;if(velo){velo.remove();velo=null;}}
+bt.addEventListener("click",function(){g.classList.contains("abierto")?cerrar():abrir();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&g.classList.contains("abierto")){cerrar();bt.focus();}});
+g.querySelector(".gl-todo").addEventListener("click",function(){cerrar();var b=document.querySelector(".hd-burger");if(b)b.click();});
+ls.addEventListener("click",function(e){if(e.target.closest("a"))setTimeout(cerrar,0);});
+function cuenta(us){if(!us||!us.length)return;var n=us.length;g.querySelector(".gl-n").textContent=n;var c=g.querySelector(".gl-cnt");if(c)c.textContent=n+(n===1?" publicada":" publicadas");
+ [].forEach.call(document.querySelectorAll(".hd-cnt b"),function(b){b.textContent=n;});[].forEach.call(document.querySelectorAll(".hd-cnt"),function(a){a.lastChild.textContent=n===1?" grúa a la venta":" grúas a la venta";});}
+function guardadas(){var n=0;try{n=JSON.parse(localStorage.getItem("gx_guardadas")||"[]").length;}catch(e){}var s=g.querySelector(".gl-gn");if(s)s.textContent=n?(n===1?"1 grúa":n+" grúas"):"tus grúas favoritas";}
+guardadas();addEventListener("storage",guardadas);bt.addEventListener("pointerdown",guardadas,{passive:true});
+if(window.gxCat&&window.matchMedia("(max-width:899px)").matches){var ok=false;try{ok=!!sessionStorage.getItem("gx-cat-v1");}catch(e){}if(ok||location.pathname==="/gruas/")window.gxCat().then(cuenta).catch(function(){});}})();

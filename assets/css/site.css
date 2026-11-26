@@ -477,3 +477,7 @@ img{color:transparent}
 .tomas li:nth-last-child(-n+2){border-bottom:0}
 .tomas i{width:30px;height:30px;border-radius:9px;background:var(--azul);color:#fff}
 @media(min-width:900px){.tomas li:nth-last-child(-n+4){border-bottom:0}}
+
+/* premium4 */
+@media(max-width:979px) and (min-height:700px) and (max-height:900px){.hs-fig{max-width:300px}}
+@media(max-width:979px) and (min-height:700px) and (max-height:760px){.hs-fig{max-width:250px}}

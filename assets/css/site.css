@@ -303,3 +303,42 @@ img{color:transparent}
 .m-foto img[src*="/fotos/u3-"],.fe-foto img[src*="/fotos/u3-"]{transform:scale(1.025)}
 .m-mosaico .m-foto:hover img[src*="/fotos/u3-"]{transform:scale(1.05)}
 @media(prefers-reduced-motion:reduce){.m-mosaico .m-foto img{transition:none}.m-mosaico .m-foto:hover img{transform:none}}
+/* Inicio: héroe con vitrina enmarcada (la unidad, sus datos y la pregunta en un marco dentro del escenario) */
+.hs-in{grid-template-areas:"txt" "esc" "acc" "prf";gap:18px;padding:24px 18px 18px}
+.hs-vit{grid-area:esc;position:relative;display:grid;gap:10px;min-width:0;padding:10px;border-radius:28px;background:radial-gradient(80% 60% at 50% 38%,rgba(42,111,192,.42),rgba(42,111,192,0) 72%),var(--hex),linear-gradient(170deg,#11233F 0%,#0A1528 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.09),0 24px 50px rgba(0,0,0,.35)}
+.hs-vit-tag{position:absolute;z-index:3;top:12px;left:12px;display:flex;align-items:center;gap:7px;padding:6px 10px;border-radius:10px;background:rgba(255,255,255,.95);color:var(--azul);font-size:12.5px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.hs-vit-tag .ic{width:15px;height:15px}
+.hs-vit .hs-esc{grid-area:auto;padding:44px 8px 20px}
+.hs-vit .hs-dat{grid-area:auto;display:grid;justify-content:stretch;gap:6px;padding:2px 10px 0}.hs-vit .hs-dat a{justify-items:start;text-align:left}
+.hs-vit .hs-dat b{font-family:var(--f-display);font-size:19px;letter-spacing:-.03em}
+.hs-vit .hs-p{font-family:var(--f-display);color:var(--amarillo);font-size:26px;letter-spacing:-.04em;line-height:1}
+.hs-vit .hs-apt{grid-area:auto;border-radius:20px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.hs-prf{gap:8px;margin:0;padding:0;border-top:0}
+.hs-prf li{justify-items:center;align-content:center;gap:4px;padding:14px 8px 12px;border-radius:18px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);text-align:center}
+.hs-prf b{font-family:var(--f-display);font-size:28px;letter-spacing:-.04em}
+.hs-prf b small{font-family:var(--f-texto,inherit);font-size:12px;font-weight:700;letter-spacing:0;color:#AFC0D6}
+.hs-prf span{font-size:12.5px;line-height:1.3;color:#AFC0D6}
+.hs-prf span i{display:none;font-style:normal}
+.ha-resp{justify-content:center}
+@media(max-width:979px) and (max-height:760px){.hs-u{max-height:160px}.hs-vit .hs-esc{padding:44px 6px 14px}}
+@media(min-width:980px){.hs-in{grid-template-areas:"txt esc" "acc esc" "prf prf";row-gap:22px}
+ .hs-vit{align-self:center;padding:12px}.hs-vit .hs-esc{padding:56px 22px 28px}.hs-vit .hs-dat{display:flex;justify-content:space-between;align-items:flex-end;padding:0 12px}
+ .hs-vit .hs-dat b{font-size:22px}.hs-vit .hs-p{font-size:34px}
+ .hs-prf{gap:12px}.hs-prf li{grid-template-columns:auto minmax(0,1fr);justify-items:start;text-align:left;column-gap:14px;padding:16px 20px}
+ .hs-prf b{font-size:38px}.hs-prf span{font-size:14px}.hs-prf span i{display:inline}.ha-resp{justify-content:flex-start}}
+
+/* Armonía en celular: una sola escala de títulos, márgenes iguales y botones del mismo tamaño */
+@media(max-width:699px){
+ .sh h2,.sec-head h2,.hx-blk h2,.m-cab h2,.sec>.wrap>h2,.blk>h2,.sec h2:not([class]){font-size:26px;line-height:1.08;letter-spacing:-.035em}
+ .m-cab h1,.cat-cab h1,.fp-cab h1{font-size:32px;line-height:1.04;letter-spacing:-.04em}
+ .m-cab h3,.an-cab h3{font-size:22px;line-height:1.12;letter-spacing:-.03em}
+ .m-cab{padding:16px 12px 14px}
+ .an{margin-inline:0;padding:22px}
+ .carrusel .carrusel-pista{margin-inline:calc(var(--canal) * -1)}
+ .btn{min-height:54px}
+ .an-pie .btn,.hx-blk .btn,.hv-acc .btn,.m-acc .hx-marin-ir,.m-acc .marin-min-ir,.alterna .btn{width:100%;justify-content:center}
+ .hx-marin-ir,.marin-min-ir{min-height:52px}
+ .an-pie{display:grid;gap:12px;justify-items:stretch}.an-ir{justify-self:start}
+ .hv-acc{display:grid;gap:14px;justify-items:stretch}.hv-ir{justify-self:center}
+ .hx-blk .btn+.btn{margin-top:0}
+}

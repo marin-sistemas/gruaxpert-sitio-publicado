@@ -209,11 +209,24 @@ var cnt={};us.forEach(function(u){cnt[u.fam]=(cnt[u.fam]||0)+1;});
 [].forEach.call(document.querySelectorAll('a.mt[href^="/gruas/"]'),function(a){var m=(a.getAttribute("href")||"").match(/^\/gruas\/([a-z-]+)\/$/);if(!m||!MAP[m[1]])return;var k=cnt[MAP[m[1]]]||0,sp=a.querySelector(".mt-n");if(sp)sp.textContent=k?k+" a la venta":"Pídela";a.classList.toggle("mt-hay",!!k);});
 [].forEach.call(document.querySelectorAll('a.fe-tipo[href^="/gruas/"]'),function(a){var m=(a.getAttribute("href")||"").match(/^\/gruas\/([a-z-]+)\/$/);if(!m||!MAP[m[1]])return;var k=cnt[MAP[m[1]]]||0,em=a.querySelector("em");if(em){em.textContent=k?k+" a la venta":"Pídela";em.classList.toggle("fe-n-on",!!k);}});var pre=document.querySelector(".cat-pr4 li:first-child b");if(pre){var mins=us.map(function(u){return+String(u.precio).replace(/[^0-9.]/g,"")||0;}).filter(Boolean);if(mins.length){var mn=Math.min.apply(null,mins)/1e6;pre.textContent="$"+(Math.round(mn*100)/100).toFixed(2).replace(/\.?0+$/,"")+" M";}}var tot=us.length;[].forEach.call(document.querySelectorAll(".hj-r-prim em"),function(e){if(/a la venta$/.test(e.textContent))e.textContent=tot+" a la venta";});
 [].forEach.call(document.querySelectorAll('.mx-paso[href="/gruas/"] small,.hj-paso[href="/gruas/"] small'),function(e){if(/con precio a la vista$/.test(e.textContent))e.textContent=tot+(tot===1?" grúa":" grúas")+" con precio a la vista";});}
-function ya(){obtener().then(pinta).catch(function(){});}
+window.gxCat=obtener;function ya(){obtener().then(pinta).catch(function(){});}
 if(enCatalogo){ya();return;}
 var g0=document.querySelector(".hd-nav .grupo");if(g0){g0.addEventListener("mouseenter",ya);g0.addEventListener("focusin",ya);}
 document.addEventListener("pointerdown",function(e){if(e.target.closest&&e.target.closest('.hd button[aria-label*="enú"],.tabbar'))ya();},{passive:true});
 document.addEventListener("click",function(e){if(e.target.closest&&e.target.closest('.hd button[aria-label*="enú"]'))ya();});
 var sesion=false;try{sesion=!!sessionStorage.getItem("gx-cat-v1");}catch(e){}if(sesion)ya();
 else if(window.matchMedia("(min-width:1120px)").matches){var ocioso=window.requestIdleCallback||function(f){return setTimeout(f,1800);};addEventListener("load",function(){ocioso(ya,{timeout:4000});});}})();
+(function(){"use strict";var mos=document.querySelector(".m-mosaico[data-cat]"),tipos=document.querySelectorAll("a.fe-tipo .fe-ti[data-ic]");if(!mos&&!tipos.length)return;
+var MAP={"articuladas":"articulated_hiab","todo-terreno":"rough_terrain","telescopicas":"telescopic","titan":"titan","carry-deck":"carry_deck"};
+function esc(t){return String(t==null?"":t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function fotos(u){var ss=(u.srcset||"").split(",").map(function(x){return x.trim();}).filter(function(x){return/-w(480|800)\./.test(x);});return{src:ss.length?ss[0].split(" ")[0]:u.src,ss:ss.join(", ")};}
+function pinta(us){if(!us||!us.length)return;var ord=us.slice().sort(function(a,b){return b.n-a.n;});
+if(mos){var top=ord.slice(0,3),act=[].map.call(mos.querySelectorAll("a.m-foto"),function(a){return a.getAttribute("href");}).join("|");
+ mos.setAttribute("data-n",top.length);if(top.map(function(u){return u.href;}).join("|")!==act){mos.innerHTML=top.map(function(u,i){var f=fotos(u);return'<a class="m-foto" href="'+esc(u.href)+'"><img src="'+esc(f.src)+'"'+(f.ss?' srcset="'+esc(f.ss)+'" sizes="(min-width:900px) 380px, '+(i?"46vw":"92vw")+'"':"")+' width="'+esc(u.w)+'" height="'+esc(u.h)+'" alt="'+esc(u.nombre)+'" loading="lazy" decoding="async"><span class="m-sobre"><span class="m-quien"><span>'+esc(u.nombre)+'<small>'+esc([u.famT,u.loc].filter(Boolean).join(" · "))+'</small></span></span><span class="m-mini">'+esc(u.precio)+'</span></span></a>';}).join("");}}
+[].forEach.call(tipos,function(t){var a=t.closest("a.fe-tipo"),m=(a.getAttribute("href")||"").match(/^\/gruas\/([a-z-]+)\/$/);if(!m||!MAP[m[1]])return;var u=ord.filter(function(x){return x.fam===MAP[m[1]];})[0];
+ if(u){var f=fotos(u);if(t.classList.contains("fe-foto")&&t.querySelector("img").getAttribute("src")===f.src)return;t.className="fe-ti fe-foto";t.innerHTML='<span class="fb" style="background-image:url('+esc(f.src)+')"></span><img src="'+esc(f.src)+'" width="'+esc(u.w)+'" height="'+esc(u.h)+'" alt="" loading="lazy" decoding="async">';}
+ else if(t.classList.contains("fe-foto")){t.className="fe-ti";t.innerHTML='<svg class="ic" aria-hidden="true"><use href="#'+esc(t.getAttribute("data-ic"))+'"/></svg>';}});}
+function ya(){if(window.gxCat)window.gxCat().then(pinta).catch(function(){});}
+if(tipos.length)ya();
+if(mos){if("IntersectionObserver"in window){var io=new IntersectionObserver(function(e){if(e.some(function(x){return x.isIntersecting;})){io.disconnect();ya();}},{rootMargin:"600px"});io.observe(mos);}else ya();}})();
 
